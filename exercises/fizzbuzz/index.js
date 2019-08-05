@@ -12,14 +12,39 @@
 //   4
 //   buzz
 
+// function fizzBuzz(n) {
+//     let num = 1
+//     while(num <= n) {
+//         if(num % 3 === 0 && num % 5 === 0) console.log('fizzbuzz');
+//         else if(num % 3 === 0) console.log('fizz');
+//         else if(num % 5 === 0) console.log('buzz');
+//         else console.log(num);
+//         num++;
+//     }
+// }
+// function fizzBuzz(n) {
+//     for(let i = 1; i <= n; i++) {
+//         if (i % 3 === 0 & i % 5 === 0) console.log('fizzbuzz');
+//         else if (i % 3 === 0) console.log('fizz');
+//         else if (i % 5 === 0) console.log('buzz');
+//         else console.log(i);
+//     }
+// }
 function fizzBuzz(n) {
-    let num = 1
-    while(num <= n) {
-        if(num % 3 === 0 && num % 5 === 0) console.log('fizzbuzz');
-        else if(num % 3 === 0) console.log('fizz');
-        else if(num % 5 === 0) console.log('buzz');
-        else console.log(num);
-        num++;
+    for(let i = 1; i <= n; i++) {
+        //check if i is a multiple of 3 and 5?
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log('fizzbuzz');
+        } else if (i % 3 === 0) {
+            //check if i is a multiple of 3?
+            console.log('fizz');
+        } else if (i % 5 === 0) {
+            //check if i is a multiple of 5?
+            console.log('buzz');
+        } else {
+            //all other cases (i is not a multiple of 3 or 5)
+            console.log(i);
+        }
     }
 }
 fizzBuzz(5)
