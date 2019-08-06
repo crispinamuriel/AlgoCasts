@@ -69,19 +69,52 @@ from 0 to n (iterate through rows)
             add a space to 'stair'
     console.log(stair);
 */
-function steps(n) {
-    for (let row = 0; row < n; row++) {
-        let stair = '';
-        for (let column = 0; column < n; column++) {
-            if(column <= row) {
-                stair += '#';
-            } else {
-                stair += ' '
-            }
-        }
-        console.log(stair);
+// function steps(n) {
+//     for (let row = 0; row < n; row++) {
+//         let stair = '';
+//         for (let column = 0; column < n; column++) {
+//             if(column <= row) {
+//                 stair += '#';
+//             } else {
+//                 stair += ' '
+//             }
+//         }
+//         console.log(stair);
+//     }
+// }
+//recursion tutorial
+// function printNumber(num) {
+//     if (num === 0) {
+//         return;
+//     } else {
+//         console.log(num);
+//         printNumber(num - 1);
+//     }
+// }
+// printNumber(5)
+/* Recursion Tips
+1. Figure out the bare minimum pieces of information to represent your problem
+2. Give reasonable defaults to the bare minimum pieces of info
+3. Check the base case. Is there any work left to do? If not, return.
+4. Do some work. Call your function again, making sure the arguments have changed in some fashion. */
+//steps function pseudo code
+/* 1) if (row === n) then we have hit the end of our problem
+2) if the 'stair' string has a length === n then we are at the end of a row
+3) if the length of stair string is less than or equal to the row number we're working on, we add a '#', otherwise add a space.*/
+//recursive solution
+function steps(n, row = 0, stair = '') {
+    if (n === row) {
+        return;
     }
-}
+    if (stair.length === n) {
+        console.log(stair);
+        return steps(n, row + 1);
+    }
+    // stair.length <= row ? stair += '#' : stair += ' ';
+    const add = stair.length <= row ? '#' : ' ';
 
-steps(3);
+    steps(n, row, stair + add); //when we call this function here we're passing in all info needed to finish the problem
+}
+steps(3)
+
 module.exports = steps;
